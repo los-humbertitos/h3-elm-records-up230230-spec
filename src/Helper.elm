@@ -3,31 +3,12 @@ module Helper exposing (..)
 import Html exposing (Html, div, h1, li, text, ul)
 
 
-
--- Int (suma)
-
-
-add2 : Int -> Int -> Int
-add2 a b =
-    a + b
-
-
-
--- Float (suma)
-
-
-add3 : Float -> Float -> Float -> Float
-add3 x y z =
-    x + y + z
-
-
-
--- Recibe 2 num y una funcion
-
-
-calc : a -> a -> (a -> a -> b) -> b
-calc x y operation =
-    operation x y
+type alias Laptop =
+    { ram : String
+    , model : String
+    , brand : String
+    , screenSize : String
+    }
 
 
 type alias Videogame =
@@ -37,6 +18,37 @@ type alias Videogame =
     , downloads : Int
     , genres : List String
     }
+
+
+
+-- Int
+
+
+add2 : Int -> Int -> Int
+add2 a b =
+    a + b
+
+
+
+-- Float
+
+
+add3 : Float -> Float -> Float -> Float
+add3 x y z =
+    x + y + z
+
+
+
+-- Dos numeros y una funcion (op)
+
+
+calc : a -> a -> (a -> a -> b) -> b
+calc x y operation =
+    operation x y
+
+
+
+-- Fun (Listas y Records)
 
 
 languageNames : List { record | name : String } -> List String
@@ -62,6 +74,7 @@ getVideogameGenres list =
     List.map .genres list
 
 
+myLaptop : Laptop
 myLaptop =
     { ram = "16GB"
     , model = "XPS 13"
